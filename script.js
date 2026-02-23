@@ -2,9 +2,10 @@ AOS.init();
 
 new Typed("#typed", {
   strings: [
-    "Software & Systems Architect",
-    "Automotive Toolchain Expert",
-    "HPC & Calibration Systems Specialist"
+    "I am a Software & Systems Architect",
+    "I am a Automotive Toolchain Expert",
+    "I am a HPC & Calibration Systems Specialist"
+    "AI/Cloud Enthusiast"
   ],
   typeSpeed: 50,
   backSpeed: 30,
