@@ -27,3 +27,17 @@ alert("Message Sent Successfully!");
 alert("Message Failed.");
 });
 });
+
+// LANGUAGE TOGGLE
+let isGerman = false;
+function toggleLanguage(){
+if(!isGerman){
+document.getElementById("about-text").innerText =
+"Ich entwerfe modulare, skalierbare Software-Ökosysteme, die eingebettete Systeme mit Unternehmensanwendungen verbinden.";
+isGerman = true;
+} else {
+document.getElementById("about-text").innerText =
+"I design modular, scalable ecosystems that bridge embedded systems and enterprise applications.";
+isGerman = false;
+}
+}
