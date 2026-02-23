@@ -12,14 +12,14 @@ new Typed("#typed", {
 });
 
 (function(){
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("rUswCMZO5I4fSAKjb");
 })();
 
 document.getElementById("contact-form")
 .addEventListener("submit", function(e){
 e.preventDefault();
 
-emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",this)
+emailjs.sendForm("service_zumespj","template_07qz7zl",this)
 .then(function(){
 alert("Message Sent Successfully!");
 }, function(){
