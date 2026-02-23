@@ -4,11 +4,11 @@ new Typed("#typed", {
   strings: [
     "I am a Software & Systems Architect",
     "I am a Automotive Toolchain Expert",
-    "I am a HPC & Calibration Systems Specialist"
+    "I am a HPC & Calibration Systems Specialist",
     "AI/Cloud Enthusiast"
   ],
   typeSpeed: 50,
-  backSpeed: 30,
+  backSpeed: 10,
   loop: true
 });
 
