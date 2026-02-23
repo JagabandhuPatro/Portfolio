@@ -8,7 +8,7 @@ new Typed("#typed", {
     "AI/Cloud Enthusiast"
   ],
   typeSpeed: 50,
-  backSpeed: 10,
+  backSpeed: 60,
   loop: true
 });
 
