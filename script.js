@@ -66,6 +66,63 @@ window.addEventListener('scroll', () => {
         nav.style.background = '#2c3e50';
     }
 });
+// ===========================
+// EXPERIENCE CARDS ANIMATION
+// ===========================
+const experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
+                
+                // Animate responsibilities
+                const responsibilities = entry.target.querySelectorAll('.responsibilities li');
+                responsibilities.forEach((item, itemIndex) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, itemIndex * 100);
+                });
+                
+                // Animate tech badges
+                const badges = entry.target.querySelectorAll('.tech-badge');
+                badges.forEach((badge, badgeIndex) => {
+                    setTimeout(() => {
+                        badge.style.opacity = '1';
+                        badge.style.transform = 'scale(1)';
+                    }, 400 + (badgeIndex * 50));
+                });
+            }, index * 200);
+            experienceObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+document.querySelectorAll('.experience-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(50px) scale(0.95)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    
+    // Set initial state for responsibilities
+    card.querySelectorAll('.responsibilities li').forEach(li => {
+        li.style.opacity = '0';
+        li.style.transform = 'translateX(-30px)';
+        li.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background 0.3s ease, border-left-color 0.3s ease';
+    });
+    
+    // Set initial state for tech badges
+    card.querySelectorAll('.tech-badge').forEach(badge => {
+        badge.style.opacity = '0';
+        badge.style.transform = 'scale(0.8)';
+        badge.style.transition = 'opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease';
+    });
+    
+    experienceObserver.observe(card);
+});
+
 
 // ===========================
 // FADE IN ANIMATION FOR SECTIONS
