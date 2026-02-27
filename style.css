@@ -1598,18 +1598,25 @@ section h2::after {
 
 .project-company,
 .project-year {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+   display: inline-block;
     color: #666;
     font-size: 0.9rem;
     font-weight: 500;
+    position: relative;
+    padding-left: 0;
 }
 
+.project-company::before {
+    content: '🏢';
+    margin-right: 0.5rem;
+}
+
+.project-year::before {
+    content: '📅';
+    margin-right: 0.5rem;
+}
 .project-meta-icon {
-    width: 16px;
-    height: 16px;
-    color: #667eea;
+display: none;
 }
 
 .project-description {
