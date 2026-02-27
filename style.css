@@ -1,6 +1,15 @@
 /* ===========================
    GLOBAL STYLES
    =========================== */
+/* TEST - If projects turn RED, CSS is loading */
+.projects {
+    background: red !important;
+}
+
+.projects-grid {
+    background: blue !important;
+}
+
 * {
     margin: 0;
     padding: 0;
