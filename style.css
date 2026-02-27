@@ -1859,3 +1859,89 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+
+/* ===========================
+   RESPONSIVE DESIGN - PROJECTS
+   =========================== */
+@media (max-width: 768px) {
+    /* ... existing responsive code ... */
+    
+    /* Projects responsive */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .project-image-section {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .project-icon {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 3rem;
+    }
+    
+    .project-body {
+        padding: 1.5rem;
+    }
+    
+    .project-header-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .project-highlights {
+        padding: 1.2rem;
+    }
+    
+    .project-tech {
+        gap: 0.5rem;
+    }
+    
+    .tech-pill {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* ... existing responsive code ... */
+    
+    .projects h2 {
+        font-size: 2rem;
+    }
+    
+    .projects .section-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .project-icon {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 2.5rem;
+    }
+    
+    .project-header-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .project-description {
+        font-size: 0.9rem;
+    }
+    
+    .project-highlights h4 {
+        font-size: 0.95rem;
+    }
+    
+    .project-highlights li {
+        font-size: 0.85rem;
+    }
+}
