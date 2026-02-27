@@ -187,8 +187,35 @@ const projectObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             setTimeout(() => {
                 entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
+                entry.target.style.transform = 'translateY(0) scale(1)';
+                
+                // Animate highlights
+                const highlights = entry.target.querySelectorAll('.project-highlights li');
+                highlights.forEach((item, itemIndex) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, itemIndex * 100);
+                });
+                
+                // Animate tech pills
+                const pills = entry.target.querySelectorAll('.tech-pill');
+                pills.forEach((pill, pillIndex) => {
+                    setTimeout(() => {
+                        pill.style.opacity = '1';
+                        pill.style.transform = 'scale(1)';
+                    }, 400 + (pillIndex * 60));
+                });
+                
+                // Animate impact
+                const impact = entry.target.querySelector('.impact-value');
+                if (impact) {
+                    setTimeout(() => {
+                        impact.style.opacity = '1';
+                        impact.style.transform = 'scale(1)';
+                    }, 600);
+                }
+            }, index * 150);
             projectObserver.unobserve(entry.target);
         }
     });
@@ -198,8 +225,31 @@ const projectObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.project-card').forEach(card => {
     card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    card.style.transform = 'translateY(40px) scale(0.95)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease, border-color 0.4s ease';
+    
+    // Set initial state for highlights
+    card.querySelectorAll('.project-highlights li').forEach(li => {
+        li.style.opacity = '0';
+        li.style.transform = 'translateX(-20px)';
+        li.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+    
+    // Set initial state for tech pills
+    card.querySelectorAll('.tech-pill').forEach(pill => {
+        pill.style.opacity = '0';
+        pill.style.transform = 'scale(0.8)';
+        pill.style.transition = 'opacity 0.4s ease, transform 0.4s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease';
+    });
+    
+    // Set initial state for impact
+    const impact = card.querySelector('.impact-value');
+    if (impact) {
+        impact.style.opacity = '0';
+        impact.style.transform = 'scale(0.8)';
+        impact.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    }
+    
     projectObserver.observe(card);
 });
 // ===========================
@@ -253,19 +303,6 @@ document.querySelectorAll('.education-highlights ul').forEach(ul => {
         li.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     });
     highlightObserver.observe(ul);
-});
-
-// ===========================
-// PROJECT LINK VALIDATION
-// ===========================
-document.querySelectorAll('.project-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // If the href is just "#", prevent default and show alert
-        if (this.getAttribute('href') === '#') {
-            e.preventDefault();
-            alert('Project details coming soon! Please add your project link.');
-        }
-    });
 });
 
 // ===========================
