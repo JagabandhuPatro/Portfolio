@@ -111,6 +111,94 @@ if (footer) {
     const currentYear = new Date().getFullYear();
     footer.innerHTML = `&copy; ${currentYear} Your Name. All rights reserved.`;
 }
+// ===========================
+// PROJECT CARDS ANIMATION
+// ===========================
+const projectObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 100);
+            projectObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+document.querySelectorAll('.project-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    projectObserver.observe(card);
+});
+// ===========================
+// EDUCATION CARDS ANIMATION
+// ===========================
+const educationObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
+            }, index * 200);
+            educationObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+document.querySelectorAll('.education-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px) scale(0.95)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    educationObserver.observe(card);
+});
+
+// ===========================
+// EDUCATION HIGHLIGHTS ANIMATION
+// ===========================
+const highlightObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const items = entry.target.querySelectorAll('li');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+            highlightObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.5
+});
+
+document.querySelectorAll('.education-highlights ul').forEach(ul => {
+    ul.querySelectorAll('li').forEach(li => {
+        li.style.opacity = '0';
+        li.style.transform = 'translateX(-20px)';
+        li.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    highlightObserver.observe(ul);
+});
+
+// ===========================
+// PROJECT LINK VALIDATION
+// ===========================
+document.querySelectorAll('.project-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        // If the href is just "#", prevent default and show alert
+        if (this.getAttribute('href') === '#') {
+            e.preventDefault();
+            alert('Project details coming soon! Please add your project link.');
+        }
+    });
+});
 
 // ===========================
 // MOBILE MENU TOGGLE (Optional Enhancement)
