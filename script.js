@@ -177,7 +177,7 @@ window.addEventListener('scroll', () => {
 const footer = document.querySelector('footer p');
 if (footer) {
     const currentYear = new Date().getFullYear();
-    footer.innerHTML = `&copy; ${currentYear} Your Name. All rights reserved.`;
+    footer.innerHTML = `&copy; ${currentYear} Jagabandhu. All rights reserved.`;
 }
 // ===========================
 // PROJECT CARDS ANIMATION
@@ -310,7 +310,7 @@ document.querySelectorAll('.education-highlights ul').forEach(ul => {
 // ===========================
 // Uncomment this section if you want to add a hamburger menu for mobile
 
-/*
+
 const createMobileMenu = () => {
     const nav = document.querySelector('nav .container');
     const menuToggle = document.createElement('button');
@@ -340,4 +340,4 @@ const createMobileMenu = () => {
 };
 
 createMobileMenu();
-*/
+
