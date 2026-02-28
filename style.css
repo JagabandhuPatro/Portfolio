@@ -189,7 +189,7 @@ nav a.active {
     opacity: 0;
     transform: translateY(100%);
     animation: fadeUpRole 12s ease-in-out infinite;
-    background: linear-gradient(to right, #ffd89b, #19547b);
+    background: linear-gradient(to right, #ffd89b, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
